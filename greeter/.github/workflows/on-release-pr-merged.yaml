@@ -1,0 +1,13 @@
+name: Release Automation
+on:
+  pull_request:
+    types:
+      - closed
+
+jobs:
+  if-release-pr-merged:
+    if: |
+      startsWith(github.event.pull_request.title, 'chore(main):release') && github.event.pull_request.merged == true &&
+      github.event.pull_request.user.login == 'github-actions[bot]'
+    run: |
+      echo  "This PR is opened by github.event.pull_request.user.login"
