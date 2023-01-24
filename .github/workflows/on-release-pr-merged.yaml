@@ -17,9 +17,9 @@ jobs:
           echo "pull request login ${{ github.event.pull_request.user.login }}"
       - id: set-output
         run: |
-          is_release_pr = ${{ startsWith(github.event.pull_request.title, 'chore(main):release') && github.event.pull_request.merged == true &&
-      github.event.pull_request.user.login == 'github-actions[bot]' }}
-          echo "is_release_pr=$is_release_pr" >> $GITHUB_OUTPUT
+          echo " is release pr ? ${{ startsWith(github.event.pull_request.title, 'chore(main):release') && github.event.pull_request.merged == true &&
+      github.event.pull_request.user.login == 'github-actions[bot]' }}"
+          echo "is_release_pr='true'" >> $GITHUB_OUTPUT
           if $is_release_pr
           then
             echo "This workflow was triggered by the release-please PR, continue."
@@ -29,7 +29,7 @@ jobs:
     
     job2:
       name: Job 2
-      if: needs.if-release-pr-merged.outputs.is_release_pr
+      if: needs.if-release-pr-merged.outputs.is_release_pr == 'true'
       runs-on: ubuntu-latest
       steps:
         - run: echo "hello"
