@@ -1,0 +1,10 @@
+name: When release created
+on:
+  release:
+    types: [created]
+
+jobs:
+  echo-release-title:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "The PR title ${{ github.event.pull_request.title }}"
