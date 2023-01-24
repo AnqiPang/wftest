@@ -13,7 +13,6 @@ jobs:
     steps:
       - name: print
         run: |
-          echo "github context ${{startsWith(github.event.pull_request.title, 'chore(main):release')}}"
           echo pull request login ${{ github.event.pull_request.title }}
       - id: set-output
         run: |
