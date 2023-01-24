@@ -7,4 +7,7 @@ jobs:
   echo-release-title:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "The PR title ${{ github.event.pull_request.title }}"
+      - env:
+        GITHUB_TOKEN: $${{ secrets.RELEASE_TOKEN }}
+        run: |
+          echo "The PR title ${{ github.event.pull_request.title }}"
