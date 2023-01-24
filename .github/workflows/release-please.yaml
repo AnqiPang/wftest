@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: google-github-actions/release-please-action@v3
         with:
-          token: $${{ secrets.RELEASE_TOKEN }}
+          repo-token: $${{ secrets.RELEASE_TOKEN }}
           release-type: go
           package-name: greeter
           changelog-types: >
