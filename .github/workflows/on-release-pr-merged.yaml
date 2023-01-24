@@ -13,7 +13,7 @@ jobs:
     steps:
       - name: print
         run: |
-          echo pull request login ${{ github.event.pull_request.title }}
+          echo "pull request login ${{ github.event.pull_request.title }}"
       - id: set-output
         run: |
           echo "${{ github.event.pull_request.user.login }}"
