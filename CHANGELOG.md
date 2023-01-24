@@ -1,5 +1,20 @@
 # Changelog
 
+## [0.2.2](https://github.com/AnqiPang/wftest/compare/v0.2.1...v0.2.2) (2023-01-24)
+
+
+### Bug Fixes
+
+* check pr ([54ec28a](https://github.com/AnqiPang/wftest/commit/54ec28ac242d42673c89e22cc007e518f259d5d5))
+* syntax ([a37886c](https://github.com/AnqiPang/wftest/commit/a37886cc7346e4de6fcce41aa8b41dc439a9023a))
+* test ([7803f60](https://github.com/AnqiPang/wftest/commit/7803f607fe0ade83101df5e8bdfd921156ae3cb3))
+* test ([1008666](https://github.com/AnqiPang/wftest/commit/100866652525d1b35babb3e7f2e0d34fb94985f4))
+* update ([7c754ac](https://github.com/AnqiPang/wftest/commit/7c754ac145081219726927940c7c42b917f3c394))
+* update ([1803c51](https://github.com/AnqiPang/wftest/commit/1803c51e062ea0d71b194749d87c862a7508fb8d))
+* update ([d2491c8](https://github.com/AnqiPang/wftest/commit/d2491c8c6713663ac378181f79cb01790641c012))
+* update wf ([99dd89d](https://github.com/AnqiPang/wftest/commit/99dd89d03d7eee8775ab9f9e6820e381d26ef1e8))
+* wf ([983fd63](https://github.com/AnqiPang/wftest/commit/983fd63eb761847997c8a038987aae14dab32c44))
+
 ## [0.2.1](https://github.com/AnqiPang/wftest/compare/v0.2.0...v0.2.1) (2023-01-24)
 
 
