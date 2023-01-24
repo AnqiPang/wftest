@@ -17,8 +17,8 @@ jobs:
           echo "pull request login ${{ github.event.pull_request.user.login }}"
       - id: set-output
         run: |
-          echo " is release pr ? ${{ startsWith(github.event.pull_request.title, 'chore(main):release') && github.event.pull_request.merged == true &&
-      github.event.pull_request.user.login == 'github-actions[bot]' }}"
+          echo " is release pr ? ${{ startsWith(github.event.pull_request.title,'chore(main):release') }} && ${{ github.event.pull_request.merged }} == true &&
+      ${{ github.event.pull_request.user.login }} == 'github-actions[bot]' "
           echo "is_release_pr='true'" >> $GITHUB_OUTPUT
           if $is_release_pr
           then
