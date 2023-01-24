@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.3](https://github.com/AnqiPang/wftest/compare/v0.2.2...v0.2.3) (2023-01-24)
+
+
+### Bug Fixes
+
+* update ([3033525](https://github.com/AnqiPang/wftest/commit/30335254497ba3ecffd9156f37a6b4db7ebe6955))
+
 ## [0.2.2](https://github.com/AnqiPang/wftest/compare/v0.2.1...v0.2.2) (2023-01-24)
 
 
