@@ -8,12 +8,18 @@ jobs:
   if-release-pr-merged:
     name: release-please-pr check
     outputs: 
-      is_release_pr: ${{ startsWith(github.event.pull_request.title, 'chore(main):release') && github.event.pull_request.merged == true &&
-      github.event.pull_request.user.login == 'github-actions[bot]' }}
+      is_release_pr: ${{ steps.set-output.outputs.is_release_pr }}
     runs-on: ubuntu-latest
     steps:
+      - name: print
+        run: |
+          echo "github context ${{startsWith(github.event.pull_request.title, 'chore(main):release')}}"
+          echo "pull request login ${{ github.event.pull_request.user.login }}"
       - id: set-output
-      - run: |
+        run: |
+          is_release_pr = ${{ startsWith(github.event.pull_request.title, 'chore(main):release') && github.event.pull_request.merged == true &&
+      github.event.pull_request.user.login == 'github-actions[bot]' }}
+          echo "is_release_pr=$is_release_pr" >> $GITHUB_OUTPUT
           if $is_release_pr
           then
             echo "This workflow was triggered by the release-please PR, continue."
