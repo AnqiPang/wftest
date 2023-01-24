@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.1](https://github.com/AnqiPang/wftest/compare/v0.2.0...v0.2.1) (2023-01-24)
+
+
+### Bug Fixes
+
+* release created ([25696cb](https://github.com/AnqiPang/wftest/commit/25696cb251ee782d64141b2e97b31861678eada0))
+
 ## [0.2.0](https://github.com/AnqiPang/wftest/compare/v0.1.1...v0.2.0) (2023-01-24)
 
 
