@@ -6,6 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       tag: ${{ steps.latesttag.outputs.tag }}
+      version: ${{ steps.latestversion.outputs.version }}
     steps:
       - uses: actions/checkout@v3
         with:
@@ -14,12 +15,26 @@ jobs:
         id: latesttag
         uses: "WyriHaximus/github-action-get-previous-tag@v1"
         with:
-          fallback: 0.1.0
+          fallback: v0.1.0
+      - name: 'Convert tag to version'
+        id: latestversion
+        run: |
+          version = ${{ steps.latesttag.outputs.tag }}
+          if [[  $version == v* ]]; then
+            version = "${version:1}"
+          fi
+          echo "version=$version" >> ${GITHUB_OUTPUT}
+          
   another-job:
     needs: get-latest-tag
     runs-on: ubuntu-latest
     steps:
-      - run: echo "get latest tag ${{ needs.get-latest-tag.outputs.tag }}"
+      - name: Print version
+        run: |
+          echo "get latest tag ${{ needs.get-latest-tag.outputs.tag }}"
+          echo "get latest version $TAG_VERSION"
+        env:
+          TAG_VERSION: ${{ needs.get-latest-tag.outputs.version }}
 
          
       
