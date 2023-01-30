@@ -25,16 +25,29 @@ jobs:
           fi
           echo "version=$version" >> ${GITHUB_OUTPUT}
           
-  another-job:
+  print-version:
     needs: get-latest-tag
     runs-on: ubuntu-latest
+    env: 
+      TAG_VERSION: ${{ needs.get-latest-tag.outputs.version }}
     steps:
+      - uses: actions/checkout@v3
+        with:
+            ref: ${{ env.TAG_VERSION }}
       - name: Print version
         run: |
           echo "get latest tag ${{ needs.get-latest-tag.outputs.tag }}"
           echo "get latest version $TAG_VERSION"
+  
+  pr-to-homebrew:
+    needs: print-version
+    runs-on: ubuntu-latest
+    steps:
+      - name: Open a pull request to homebrwe-cask
+        run: brew bump-cask-pr --version=${FINCH_VERSION} finch
         env:
-          TAG_VERSION: ${{ needs.get-latest-tag.outputs.version }}
+          FINCH_VERSION: ${{ needs.get-latest-tag.outputs.version }}
+          HOMEBREW_GITHUB_API_TOKEN: ${{ secrets.MY_BOT_TOKEN }}
 
          
       
