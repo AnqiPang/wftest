@@ -29,11 +29,11 @@ jobs:
     needs: get-latest-tag
     runs-on: ubuntu-latest
     env: 
-      TAG_VERSION: ${{ needs.get-latest-tag.outputs.version }}
+      TAG: ${{ needs.get-latest-tag.outputs.tag }}
     steps:
       - uses: actions/checkout@v3
         with:
-            ref: ${{ env.TAG_VERSION }}
+            ref: ${{ env.TAG }}
       - name: Print version
         run: |
           echo "get latest tag ${{ needs.get-latest-tag.outputs.tag }}"
