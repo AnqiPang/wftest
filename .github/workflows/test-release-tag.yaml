@@ -14,8 +14,6 @@ jobs:
       - name: 'Get the latest tag'
         id: latesttag
         uses: "WyriHaximus/github-action-get-previous-tag@v1"
-        with:
-          fallback: v0.1.0
       - name: 'Convert tag to version'
         id: latestversion
         run: |
