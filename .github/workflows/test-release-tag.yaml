@@ -48,6 +48,7 @@ jobs:
         uses: Homebrew/actions/setup-homebrew@master
       - name: Open a pull request to homebrwe-cask
         run: |
+          brew tap homebrew/cask
           cd $(brew --repo homebrew/cask)
           pwd
         env:
